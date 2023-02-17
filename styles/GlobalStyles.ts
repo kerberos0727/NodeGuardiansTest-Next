@@ -18,6 +18,15 @@ body {
   background-color: ${({ theme }) => theme.colors.black};
 }
 
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/fonts/Cinzel-Regular.ttf') format('truetype');
+}
 `;
 
 export default GlobalStyle;
