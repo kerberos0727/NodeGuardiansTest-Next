@@ -14,14 +14,17 @@ const ContainerDiv = styled.div`
   padding: 50px 0px 80px 0px;
 `;
 
-export const getStaticPaths: GetStaticPaths = async () => {  
-  return {
-    paths: [{ params: { guardianId: '1' } }],
-    fallback: true,
-  }
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await fetch(baseLink + "/api/quests");
+  const posts = await res.json()
+  
+  const paths = posts.map((post: any) => ({
+    params: { guardianId: String(post.id) },
+  }))
+  return { paths, fallback: false }
 };
 
-export const getStaticProps: GetStaticProps<{ guardianDetail: IGuardianFullData }> = async (context) => {
+export const getStaticProps: GetStaticProps<{ guardianDetail: IGuardianFullData }> = async (context) => {  
   const apiLink = baseLink + "/api/quests/" + (context.params ? context.params.guardianId : "");
 	const res = await fetch(apiLink);
 	const guardianDetail = await res.json();	
@@ -33,8 +36,6 @@ export const getStaticProps: GetStaticProps<{ guardianDetail: IGuardianFullData 
 }
 
 export default function GuardianDetailPage({ guardianDetail }: InferGetServerSidePropsType<typeof getStaticProps>) {  
-  console.log("guardianDetail",guardianDetail);
-  
   return (
     <>
 			<Head>

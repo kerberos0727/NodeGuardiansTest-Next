@@ -55,9 +55,7 @@ export const getServerSideProps: GetServerSideProps<{ guardiansList: Array<IGuar
   }
 }
 
-export default function Home({ guardiansList }: InferGetServerSidePropsType<typeof getServerSideProps>) {	
-	console.log("guardiansList", guardiansList);
-	
+export default function Home({ guardiansList }: InferGetServerSidePropsType<typeof getServerSideProps>) {		
 	return (
 		<>
 			<Head>
