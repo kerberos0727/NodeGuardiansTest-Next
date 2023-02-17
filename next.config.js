@@ -5,7 +5,7 @@ const nextConfig = {
     // Enables the styled-components SWC transform
     styledComponents: true
   },
-  staticPageGenerationTimeout: 1000 * 60,
+  staticPageGenerationTimeout: 1000 * 100,
 }
 
 module.exports = nextConfig
