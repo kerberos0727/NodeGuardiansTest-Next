@@ -20,7 +20,7 @@ const ContainerDiv = styled.div`
 		width: 70%;
 	}
   @media (min-width: 1024px) {
-		width: 50%;
+		width: 750px;
 	}
   padding-bottom: ${darkTheme.spacing.s};
 `;
